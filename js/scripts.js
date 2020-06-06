@@ -17,9 +17,13 @@ var pokemonList = [
   }
 ];
 
-for ( let i = 0; i < pokemonList.length; i++ ) {
-	document.write ( '<u>' + '<h3>' + pokemonList[i].name + '</h3>' + '</u>' + " " + 'Height:' + " " + pokemonList[i].height + " " )
-if (pokemonList[i].height >= 5.0) {
-	document.write ( '<i>' + '<b>' +  'Wow that\'s big!' + '</i>' + '</b>' )
-  }
+function loopFunction(pokemon) {
+  	document.write ( '<u>' + '<h3>' + pokemon.name + '</h3>' + '</u>' + " " + 'Height:' + " " + pokemon.height + " " );
+  	if (pokemon.height >= 5.0) {
+	document.write ( '<i>' + '<b>' +  'Wow that\'s big!' + '</i>' + '</b>' );
+	}
 }
+pokemonList.forEach(loopFunction);
+
+
+
