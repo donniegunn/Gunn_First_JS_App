@@ -1,4 +1,4 @@
-
+var pokemonRepository = (function () {
 var pokemonList = [
   {
    name : 'Lugia',
@@ -17,13 +17,30 @@ var pokemonList = [
   }
 ];
 
-function loopFunction(pokemon) {
-  	document.write ( '<u>' + '<h3>' + pokemon.name + '</h3>' + '</u>' + " " + 'Height:' + " " + pokemon.height + " " );
-  	if (pokemon.height >= 5.0) {
+  function getAll() {
+    return pokemonList;
+  }
+
+function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+})();
+
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({ name: 'Charizard' });
+console.log(pokemonRepository.getAll()); 
+
+
+function loopFunction() {
+  	document.write ( '<u>' + '<h3>' + pokemonRepository.getAll.name + '</h3>' + '</u>' + " " + 'Height:' + " " + pokemonRepository.getAll.height + " " );
+  	if (pokemonRepository.getAll.height >= 5.0) {
 	document.write ( '<i>' + '<b>' +  'Wow that\'s big!' + '</i>' + '</b>' );
 	}
 }
-pokemonList.forEach(loopFunction);
 
-
-
+pokemonRepository.getAll.forEach(loopFunction);
