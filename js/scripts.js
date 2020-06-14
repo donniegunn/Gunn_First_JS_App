@@ -1,5 +1,5 @@
-
 var pokemonRepository = (function () {
+   //pokemon array
   var pokemonList = [
    {
    name : 'Lugia',
@@ -17,26 +17,50 @@ var pokemonRepository = (function () {
    types : ['Dark', 'Grass'],
   }];
 
+ function add(item) {
+    pokemonList.push(item);
+  }
+
+  function getAll() {
+    return pokemonList;
+  }
+
+   function addListItem (pokemon){
+    var domList = document.querySelector('.pokemon-list');
+    var listItem = document.createElement('li');
+    var button = document.createElement('button');
+    button.innerText = (.pokemon.name);
+    button.classList.add('new-button-class'); 
+    pokemon-list.appendChild(button);
+    pokemon-list.appendChild(li);}
+
   return {
-    add: function(pokemon) {
-      pokemonList.push(pokemon);
-    },
-    getAll: function() {
-      return pokemonList;
-    }
+    add: add,
+    getAll: getAll,
+    addListItem: addListItem
   };
+
 })();
 
-console.log(pokemonRepository.getAll());
+// Add additional pokemon
 pokemonRepository.add({ name: 'Charmander' });
-Object.keys(pokemonRepository.getAll()).forEach(function(attributes) {
-console.log(pokemonRepository.getAll()[attributes]);
+
+//output pokemon list
+pokemonRepository.getAll().forEach(loopFunction);
+
+function loopFunction(attributes) {
+ var domList = document.querySelector('.pokemon-list');
+ var listItem = document.createElement('li');
+ var button = document.createElement('button');
+ button.innerText = (.attributes.name);
+ button.classList.add('new-button-class'); 
+ pokemon-list.appendChild(button);
+ pokemon-list.appendChild(li);
+}
+
+var button = document.querySelector('button');
+button.addEventListener('click', function (event) {
+  console.log(event);
 });
 
-function loopFunction(pokemon) {
-  	document.write ( '<u>' + '<h3>' + pokemon.name + '</h3>' + '</u>' + " " + 'Height:' + " " + pokemon.height + " ");
-  	if (pokemon.height >= 5.0) {
-	document.write ( '<i>' + '<b>' +  'Wow that\'s big!' + '</i>' + '</b>' );
-	}
-}
-pokemonRepository.getAll().forEach(loopFunction);
+
